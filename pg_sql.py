@@ -22,9 +22,10 @@ def create_db():
 
 def new_user(username, user_id):
     conn, cursor = connect_to_db()
+    create_db()
     cursor.execute('''SELECT * FROM users WHERE username = ?''', (username,))
     existing_user = cursor.fetchone()
-    if existing_user:
+    if existing_user or username == 'guide_guru_bot':
         return
     else:
         cursor.execute('''INSERT INTO users (username, user_id) VALUES (?, ?)''', (username, user_id))

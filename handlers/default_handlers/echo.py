@@ -14,6 +14,7 @@ def bot_echo(message: Message) -> None:
     elif "ОПОВЕЩЕНИЕ: " in message.text:
         msg = " ".join(message.text.split()[1:])
         for id in all_ids:
+            print(id)
             bot.send_message(id, msg)
 
     else:
