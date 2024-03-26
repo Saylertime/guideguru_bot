@@ -10,4 +10,4 @@ def free_texts(message):
     else:
         msg = 'Всё разобрали! Ждём новых поступлений'
 
-    bot.send_message(message.chat.id, msg, parse_mode='Markdown', disable_web_page_preview=True)
+    bot.send_message(message.from_user.id, msg, parse_mode='Markdown', disable_web_page_preview=True)

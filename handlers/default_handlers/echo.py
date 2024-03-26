@@ -9,7 +9,7 @@ def bot_echo(message: Message) -> None:
     all_users, all_ids = all_users_from_db()
 
     if message.text == 'ВСЕ':
-        bot.send_message(message.chat.id, all_users)
+        bot.send_message(message.from_user.id, all_users)
 
     elif "ОПОВЕЩЕНИЕ: " in message.text:
         msg = " ".join(message.text.split()[1:])

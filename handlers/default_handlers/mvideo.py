@@ -29,8 +29,8 @@ def mvideo(message):
              'https://docs.google.com/document/d/1m6o80ymYaZ0J2tVvGrBX7O-l550S4sEumpU63F4LQ6Y/edit', None),
             ('Обзор смартфона',
              'https://docs.google.com/document/d/1jNJVwLrcpmbqJ9vePuAPI687OvVH_wUro7cyQ0zpSms/edit#heading=h.v0yq6ffiv0uq', None),
-          ('НАЗАД В МЕНЮ', None, 'start'),
+          ('⬆⬆⬆ НАЗАД В МЕНЮ ⬆⬆⬆', None, 'start'),
       ]
       markup = create_markup_with_url(buttons)
-      bot.send_message(message.chat.id, "Выберите, что хотите", reply_markup=markup)
+      bot.send_message(message.from_user.id, "Выберите, что хотите", reply_markup=markup)
 

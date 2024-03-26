@@ -19,31 +19,30 @@ def start_message(message):
                ('Проверить текст на стоп-слова', '3'),
                ('Проверить текст на уникальность', '4'),
                ('Тексты за этот месяц', '5'),
-               ('Все тексты за месяц', '6'),
+               ('Все твои тексты с ноября 2023', '6'),
                ('Посмотреть свободные брифы', '7')]
     markup = create_markup(buttons)
-    bot.send_message(message.chat.id, "Ультимативный гайд для авторов GameGuru", reply_markup=markup)
+    bot.send_message(message.from_user.id, "⬇⬇⬇ Ультимативный гайд для авторов GameGuru ⬇⬇⬇", reply_markup=markup)
 
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
     if call.data == '1':
-        eldo(call.message)
-        bot.answer_callback_query(call.id)
+        eldo(call)
     elif call.data == "2":
-        mvideo(call.message)
+        mvideo(call)
     elif call.data == "3":
-        check(call.message)
+        check(call)
     elif call.data == "4":
-        unique(call.message)
+        unique(call)
     elif call.data == "5":
-        history(call.message)
+        history(call)
     elif call.data == "6":
-        all_texts(call.message)
+        all_texts(call)
     elif call.data == "7":
-        free_texts(call.message)
+        free_texts(call)
     elif call.data == 'start':
-        start_message(call.message)
+        start_message(call)
 
 
     # msg = f"Ультимативный гайд для авторов GameGuru \n\n" \

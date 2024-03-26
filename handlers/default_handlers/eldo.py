@@ -31,11 +31,11 @@ def eldo(message):
              'https://docs.google.com/document/d/1Uk9eUIydKiZ3IM-_tyKbNqMyHNlgahPl9gEHqBENwDk/edit?usp=sharing', None),
             ('Обзор смартфона',
              'https://docs.google.com/document/d/1MMHw17-4F7-xcdvOrZJYK8r7B-jOWu2ClznL-XbLDl4/edit?usp=sharing', None),
-            ('НАЗАД В МЕНЮ', None, 'start'),
+            ('⬆⬆⬆ НАЗАД В МЕНЮ ⬆⬆⬆', None, 'start'),
 
       ]
       markup = create_markup_with_url(buttons)
-      bot.send_message(message.chat.id, "Выберите, что хотите", reply_markup=markup)
+      bot.send_message(message.from_user.id, "Выберите, что хотите", reply_markup=markup)
 
       # msg = f"<b>КАК ОФОРМЛЯТЬ МАТЕРИАЛЫ ДЛЯ ЭЛЬДОБЛОГА</b>\n\n\n" \
     #       f"<a href='https://docs.google.com/document/d/1fHq-6PgdLUkE6X9HK0SRK-8t30DSFTSVPJDmKdAx3B4/edit?usp=sharing'><b>Каталог товаров одной категории</b></a>\n\n" \
