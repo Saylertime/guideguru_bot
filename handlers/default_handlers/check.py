@@ -16,7 +16,7 @@ def check_answer(message):
         answer = check_text(url)
         bot.send_message(message.from_user.id, answer)
     except:
-        bot.send_message(message.from_user.id, 'Похоже, ссылкая кривая или формат не тот')
+        bot.send_message(message.from_user.id, 'Похоже, ссылкая кривая, не тот формат или доступ для редактирования закрыт')
     finally:
         bot.delete_state(message.from_user.id)
 
