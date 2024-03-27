@@ -38,4 +38,7 @@ def all_users_from_db():
     all_users = [i[0] for i in all]
     all_ids = [i[1] for i in all]
     close_db_connection(conn, cursor)
+    print(all_users, all_ids)
     return all_users, all_ids
+
+all_users_from_db()

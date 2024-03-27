@@ -75,9 +75,9 @@ all_authors = {
     'drrmmn': 'Дарья',
     'marabouto': 'Рома',
     'vegur': 'Ксения',
-    'saylertime': 'Глинкин'
+    'saylertime': 'Глинкин',
+    'maria_vyshnegradskaya': 'Маша'
 }
-
 
 
 def rep_name_and_month(username, month='Март 2024'):
@@ -173,6 +173,9 @@ def all_texts_of_author(username):
     temp_file_eldo = create_and_return_file(name, 'eldo', temp_eldo)
     temp_file_mvideo = create_and_return_file(name, 'mvideo', temp_mvideo)
 
+    temp_eldo = ''
+    temp_mvideo = ''
+
     return temp_file_eldo, temp_file_mvideo
 
 
@@ -181,7 +184,7 @@ def create_and_return_file(name, blog, content):
     temp_directory = os.path.join(current_directory, "temp")
     os.makedirs(temp_directory, exist_ok=True)
     file_path = os.path.join(temp_directory, f"{name}_{blog}.txt")
-    with open(file_path, "a") as file:
+    with open(file_path, "w") as file:
         if content:
             file.write(content)
             return file_path

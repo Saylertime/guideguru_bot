@@ -8,6 +8,7 @@ from handlers.default_handlers.check import check
 from handlers.default_handlers.free_texts import free_texts
 from handlers.default_handlers.history import history
 from handlers.default_handlers.unique import unique
+from handlers.default_handlers.last_month import last_month
 
 
 @bot.message_handler(commands=['start'])
@@ -19,8 +20,9 @@ def start_message(message):
                ('Проверить текст на стоп-слова', '3'),
                ('Проверить текст на уникальность', '4'),
                ('Тексты за этот месяц', '5'),
+               ('Тексты за прошлый месяц', '8'),
                ('Все твои тексты с ноября 2023', '6'),
-               ('Посмотреть свободные брифы', '7')]
+               ('Свободные брифы', '7')]
     markup = create_markup(buttons)
     bot.send_message(message.from_user.id, "⬇⬇⬇ Ультимативный гайд для авторов GameGuru ⬇⬇⬇", reply_markup=markup)
 
@@ -41,6 +43,8 @@ def callback_query(call):
         all_texts(call)
     elif call.data == "7":
         free_texts(call)
+    elif call.data == "8":
+        last_month(call)
     elif call.data == 'start':
         start_message(call)
 
