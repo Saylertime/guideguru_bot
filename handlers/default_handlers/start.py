@@ -9,10 +9,12 @@ from handlers.default_handlers.free_texts import free_texts
 from handlers.default_handlers.history import history
 from handlers.default_handlers.unique import unique
 from handlers.default_handlers.last_month import last_month
+from utils.calend import history_file
 
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
+    history_file(message.from_user.username, 'start')
     new_user(message.from_user.username, message.from_user.id)
 
     buttons = [('Правила оформления Эльдо', '1',),

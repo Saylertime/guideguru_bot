@@ -1,6 +1,7 @@
 from telebot.types import Message
 from loader import bot
 from pg_sql import all_users_from_db
+from utils.calend import history_file
 
 @bot.message_handler(state=None)
 def bot_echo(message: Message) -> None:
@@ -18,8 +19,16 @@ def bot_echo(message: Message) -> None:
             print(id)
             bot.send_message(id, msg)
 
+    elif "ИСТОРИЯ" in message.text:
+        with open('history.txt', 'r') as file:
+            msg = file.readlines()
+            bot.send_message(message.from_user.id, f"{str(msg)}")
+
+
     else:
+        history_file(message.from_user.username, message.text)
         bot.reply_to(
             message, f"Такой команды нет: {message.text}\n"
                      f"Нажмите /start, чтобы посмотреть весь список команд"
         )
+

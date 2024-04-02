@@ -36,3 +36,7 @@ def current_day():
     tom = t + timedelta(days=1)
     tomorrow = tom.strftime('%d.%m')
     return today, tomorrow
+
+def history_file(nickname, command):
+    with open('history.txt', 'a') as file:
+        file.write(f"{datetime.now()} — {nickname} — {command}\n\n")

@@ -80,7 +80,7 @@ all_authors = {
 }
 
 
-def rep_name_and_month(username, month='Март 2024'):
+def rep_name_and_month(username, month=current_month()):
     values = get_data_from_sheet(month)
     name = all_authors.get(username)
     if not values:
