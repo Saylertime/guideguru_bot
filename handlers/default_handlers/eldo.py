@@ -1,10 +1,10 @@
 from loader import bot
 from keyboards.reply.create_markup import create_markup_with_url
-from utils.calend import history_file
+from utils.logger import logger
 
 @bot.message_handler(commands=['eldo'])
 def eldo(message):
-
+      logger.warning(f'{message.from_user.username} — команда ELDO')
       buttons = [
             ('Каталог товаров одной категории',
              'https://docs.google.com/document/d/1fHq-6PgdLUkE6X9HK0SRK-8t30DSFTSVPJDmKdAx3B4/edit?usp=sharing', None),
@@ -36,6 +36,5 @@ def eldo(message):
 
       ]
       markup = create_markup_with_url(buttons)
-      history_file(message.from_user.username, 'eldo')
       bot.send_message(message.from_user.id, "Выберите, что хотите", reply_markup=markup)
 

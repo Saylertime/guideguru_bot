@@ -1,10 +1,10 @@
 from loader import bot
 from keyboards.reply.create_markup import create_markup_with_url
-from utils.calend import history_file
+from utils.logger import logger
 
 @bot.message_handler(commands=['mvideo'])
 def mvideo(message):
-
+      logger.warning(f'{message.from_user.username} — команда MVIDEO')
       buttons = [
             ('Каталог товаров одной категории',
              'https://docs.google.com/document/d/1UKrq_lVZmv0fqDXXdeupH4DSDIW4g4R7t_V_JmIuIz0/edit', None),
@@ -32,7 +32,6 @@ def mvideo(message):
              'https://docs.google.com/document/d/1jNJVwLrcpmbqJ9vePuAPI687OvVH_wUro7cyQ0zpSms/edit#heading=h.v0yq6ffiv0uq', None),
           ('⬆⬆⬆ НАЗАД В МЕНЮ ⬆⬆⬆', None, 'start'),
       ]
-      history_file(message.from_user.username, 'mvideo')
       markup = create_markup_with_url(buttons)
       bot.send_message(message.from_user.id, "Выберите, что хотите", reply_markup=markup)
 

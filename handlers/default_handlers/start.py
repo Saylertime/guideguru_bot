@@ -9,12 +9,12 @@ from handlers.default_handlers.free_texts import free_texts
 from handlers.default_handlers.history import history
 from handlers.default_handlers.unique import unique
 from handlers.default_handlers.last_month import last_month
-from utils.calend import history_file
+from utils.logger import logger
 
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
-    history_file(message.from_user.username, 'start')
+    logger.warning(f'{message.from_user.username} — команда START')
     new_user(message.from_user.username, message.from_user.id)
 
     buttons = [('Правила оформления Эльдо', '1',),
@@ -49,13 +49,3 @@ def callback_query(call):
         last_month(call)
     elif call.data == 'start':
         start_message(call)
-
-
-    # msg = f"Ультимативный гайд для авторов GameGuru \n\n" \
-    #       f"<b>/eldo</b> — Правила оформления для Эльдоблога\n\n" \
-    #       f"<b>/mvideo</b> — Правила оформления для МКлика\n\n"\
-    #       f"<b>/history</b> — Все твои тексты за этот месяц \n\n" \
-    #       f"<b>/all_texts</b> — Все тексты с ноября 2023 года \n\n"
-    # bot.send_message(message.chat.id, msg, parse_mode='HTML')
-
-
