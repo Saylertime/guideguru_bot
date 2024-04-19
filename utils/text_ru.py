@@ -56,7 +56,7 @@ def text_unique_check(text):
                f"Процент спама: {spam_percent if spam_percent else '0'}\n"\
                f"Процент воды: {water_percent if water_percent else '0'}\n"\
                f"Грамматика: {spell_check if spell_check else 'Вроде бы всё чётко'}\n" \
-               f"'Откуда скопировано: {url_keys_str if url_keys and len(url_keys) < 3333 else 'Вроде, ниоткудова'}"
+               f"Откуда скопировано: {url_keys_str if url_keys and len(url_keys) < 3333 else 'Вроде, ниоткудова'}"
 
         print(count_words)
         print(count_chars_with_space)

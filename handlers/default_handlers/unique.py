@@ -24,7 +24,7 @@ def unique_answer(message):
         msg = text_unique_check(full_text)
         bot.send_message(message.from_user.id, msg)
     except Exception as e:
-        bot.send_message(message.from_user.id, 'Похоже, ссылкая кривая, не тот формат или доступ для редактирования закрыт')
+        bot.send_message(message.from_user.id, 'Похоже, ссылкая кривая, не тот формат или закрыт доступ для редактирования')
         # bot.send_message(message.from_user.id, e)
     finally:
         bot.delete_state(message.from_user.id)
